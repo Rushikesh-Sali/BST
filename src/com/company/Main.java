@@ -27,14 +27,21 @@ public class Main {
                     root = a.insert(root, data);
                     break;
                 case 2:
-                    System.out.println("the binary tree elements are:");
+                    System.out.println("the binary tree elements in sorted arrangement are:");
                     a.display(root);
                     break;
+                case 3:
+                    System.out.println("enter the element to be deleted");
+                    int key=scan.nextInt();
+                    root = a.delete(root,key);
+                    break;
+                default:
+                    System.out.println("invalid choice");
             }
 
 
 
-        }while(ch!=3);
+        }while(ch!=4);
 
     }
 }

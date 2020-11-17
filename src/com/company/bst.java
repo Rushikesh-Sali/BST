@@ -36,6 +36,43 @@ public class bst {
         System.out.println(node.data);
         display(node.right);
     }
+    public Node delete(Node node,int x){
+        if(node==null){
+            return node;
+        }
+        if(x<node.data){
+           node.left = delete(node.left,x);
+        }else if(x>node.data){
+           node.right = delete(node.right,x);
+        }else {
+            if (node.left==null || node.right==null){
+
+                Node temp = node.left != null ? node.left : node.right;
+                if (temp==null){
+                    return null;
+                }
+                else {
+                    return node;
+                }
+            }else {
+                Node successor=getSuccessor(node);
+                node.data=successor.data;
+                int z=successor.data;
+                node.right=delete(node.right,z);
+            }
+        } return node;
+    }
+    public Node getSuccessor(Node node){
+        if(node==null){
+            return null;
+        }
+        Node temp=node.right;
+        while(temp!=null){
+            temp=temp.left;
+        } return temp;
+
+
+    }
 
 }
 //code from marshy
