@@ -52,24 +52,20 @@ public class bst {
                     return null;
                 }
                 else {
-                    return node;
+                    return temp;
                 }
             }else {
                 Node successor=getSuccessor(node);
                 node.data=successor.data;
-                int z=successor.data;
-                node.right=delete(node.right,z);
+                node.right=delete(node.right,successor.data);
             }
         } return node;
     }
     public Node getSuccessor(Node node){
-        if(node==null){
-            return null;
-        }
-        Node temp=node.right;
-        while(temp!=null){
-            temp=temp.left;
-        } return temp;
+        Node fenk=node.right;
+        while(fenk.left!=null){
+            fenk=fenk.left;
+        } return fenk;
 
 
     }
